@@ -17,15 +17,34 @@ console.log('client.js is sourced!');
         })
         .then((response) => {
             console.log(response);
+            //   * []Update this list when a new calculation is made.
+            //target data
+            let mathFromServer = response.data;
+            //confirm data
+            console.log(mathFromServer);
+        //target element and store in variable
+            let historyDiv = document.querySelector('#oldHistory');
+            //confirm data
+            console.log(historyDiv);
+            //loop and rendor to DOM
+            for (let items of mathFromServer) {
+                //confirm data
+                console.log(items);
+                historyDiv.innerHTML += `
+                <li>
+                    <i>${items.numOne}${items.operator}${items.numTwo} = ${items.result}</i>
+                </li>
+                `;     
+            }
         })
         .catch((error) => {
             console.log(error);
             alert('NO!! Check console for details.');
         });
     };
+    
     fetchMath();
     
-//   * []Update this list when a new calculation is made.
 
 // * []Inside the `<section data-testid="recentResult">` element, display the most recent calculation **result**.
 //   * []Update this when a new calculation is made.
