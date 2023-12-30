@@ -7,17 +7,40 @@ app.use(express.static('server/public'));
 
 // Global variable that will contain all of the
 // calculation objects:
-let calculations = []
+let calculations = [
+]
 
 
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
+
+// [x] Create a `GET '/calculations'` route that will send the `calculations` array back to the client.
 app.get('/calculations', (req, res) => {
   res.send(calculations);
-})
+});
 
 // POST /calculations
+
+// [] Create a `POST '/calculations` route that will "do the math" and obtain the correct `result` value.
+app.post('/calculations', (req, res) => {
+  //store & confirm data
+  let newCalculation = req.body;
+  console.log('Get a POST request', newCalculation);
+
+  //add data to array
+  calculations.push(newCalculation);
+
+  //confirm data & route
+  res.sendStatus(201);
+});
+
+
+
+
+
+
+
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
