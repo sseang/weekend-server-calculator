@@ -9,14 +9,14 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
-      <input placeholder="First Number">
+    <form id="calculator" data-testid="calculator">
+      <input id="numOne" type="number" placeholder="First Number" required>
       <button data-operation>+</button>
       <button data-operation>-</button>
       <button data-operation>*</button>
       <button data-operation>/</button>
-      <input placeholder="Second Number">
-      <button data-equal>=</button>
+      <input id="numTwo" type="number" placeholder="Second Number" required>
+      <button id="letsCalculate" action="/calculations" method="POST" onsubmit="calculate(event)" data-equal>=</button>
       <button>C</button>
     </form>
 
@@ -25,7 +25,6 @@
     </section>
 
     <section id="oldHistory" data-testid="resultHistory">
-      <!--<h2>(Add in clien.js?)</h2>--> 
       <!-- The list of calculation results goes here. -->
     </section>
   </body>

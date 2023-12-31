@@ -24,7 +24,7 @@ let calculations = [
 ];
 
 //create array for recent results in another file on server??
-let recentMath = []
+//let recentMath = []
 
 // Here's a wonderful place to make some routes:
 
