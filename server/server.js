@@ -45,22 +45,22 @@ app.post('/calculations', (req, res) => {
 
   switch(newCalculation.operator) {
     case '+':
-      newCalculation.result = newCalculation.numOne + newCalculation.numTwo
+      newCalculation.result = Number(newCalculation.numOne) + Number(newCalculation.numTwo)
       break
     case '-':
-      newCalculation.result = newCalculation.numOne - newCalculation.numTwo
+      newCalculation.result = Number(newCalculation.numOne) - Number(newCalculation.numTwo)
       break        
     case '*':
-      newCalculation.result = newCalculation.numOne * newCalculation.numTwo
+      newCalculation.result = Number(newCalculation.numOne) * Number(newCalculation.numTwo)
       break
     case '/':
-      newCalculation.result = newCalculation.numOne / newCalculation.numTwo
+      newCalculation.result = Number(newCalculation.numOne) / Number(newCalculation.numTwo)
       break
       default:
         return
   };
 
-  //if ()
+  //if ()""
 
   //add data to array
   calculations.push(newCalculation);
