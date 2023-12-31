@@ -11,12 +11,12 @@
 
     <form data-testid="calculator">
       <input placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
+      <button data-operation>+</button>
+      <button data-operation>-</button>
+      <button data-operation>*</button>
+      <button data-operation>/</button>
       <input placeholder="Second Number">
-      <button>=</button>
+      <button data-equal>=</button>
       <button>C</button>
     </form>
 
@@ -25,6 +25,7 @@
     </section>
 
     <section id="oldHistory" data-testid="resultHistory">
+      <!--<h2>(Add in clien.js?)</h2>--> 
       <!-- The list of calculation results goes here. -->
     </section>
   </body>

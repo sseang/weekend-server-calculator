@@ -40,7 +40,9 @@ function fetchMath() {
             //     <i>${items.numOne}${items.operator}${items.numTwo} = ${items.result}</i>
             // </li>
             // `; 
-            recentDiv.innerHTML += `
+
+            //change to h2
+            recentDiv.innerHTML += `.
             <li>
             <i>${items.numOne}${items.operator}${items.numTwo} = ${items.result}</i>
             </li>

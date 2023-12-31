@@ -9,13 +9,22 @@ app.use(express.static('server/public'));
 // calculation objects:
 let calculations = [
   {
-    numOne: '',
-    numTwo: '',
-    operator: '',
-    result: ''
-  }
-]
+    numOne: 3,
+    numTwo: 5,
+    operator: '+',
+    result: 8
+  },
+  {
+    numOne: 11,
+    numTwo: 7,
+    operator: '-',
+    result: 4
 
+  }
+];
+
+//create array for recent results in another file on server??
+let recentMath = []
 
 // Here's a wonderful place to make some routes:
 
@@ -28,11 +37,30 @@ app.get('/calculations', (req, res) => {
 
 // POST /calculations
 
-// [] Create a `POST '/calculations` route that will "do the math" and obtain the correct `result` value.
+// [] Create a `POST '/calculations` route that will "do the math" and obtain the correct `result` value. check with(" ") in POSTMAN
 app.post('/calculations', (req, res) => {
   //store & confirm data
   let newCalculation = req.body;
   console.log('Get a POST request', newCalculation);
+
+  switch(newCalculation.operator) {
+    case '+':
+      newCalculation.result = newCalculation.numOne + newCalculation.numTwo
+      break
+    case '-':
+      newCalculation.result = newCalculation.numOne - newCalculation.numTwo
+      break        
+    case '*':
+      newCalculation.result = newCalculation.numOne * newCalculation.numTwo
+      break
+    case '/':
+      newCalculation.result = newCalculation.numOne / newCalculation.numTwo
+      break
+      default:
+        return
+  };
+
+  //if ()
 
   //add data to array
   calculations.push(newCalculation);
