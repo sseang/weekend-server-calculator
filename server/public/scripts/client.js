@@ -1,9 +1,9 @@
 //const { response } = require("../../server");
 
-const { response } = require("../../server");
+//const { response } = require("../../server");
 
 console.log('client.js is sourced!');
-
+let OPERATOR;
 
 // #### Client-Side:
 
@@ -62,6 +62,11 @@ function fetchMath() {
 
 fetchMath();
 
+
+
+//operatorButton();
+
+
 //send data or POST
 function calculate(event) {
     //prevent refresh
@@ -69,22 +74,24 @@ function calculate(event) {
     //confirm function
     console.log('In the POST function:');
 
+
     //target ID 
     const num1Element = document.querySelector('#numOne').value;
     const num2Element = document.querySelector('#numTwo').value;
-    const operatorElement = document.querySelectorAll('[data-operation]');
+    const operatorElement = document.querySelector('#operators');
+
 
     //confirm data
     console.log(num1Element);
     console.log(num2Element);
-    console.log(operatorElement);
+    console.log(OPERATOR);
     
     //variable for new data
     const goCalculate = {
         numOne: num1Element,
         numTwo: num2Element,
-        operator: operatorElement,
-        result: null
+        operator: OPERATOR,
+        
     };
 
     //POST info via Axios
@@ -103,6 +110,9 @@ function calculate(event) {
         //confirm data
         console.log(mathList);
         mathList.innerHTML = '';
+
+        //fetch new DATA
+        fetchMath();
     })
     .catch((error) => {
         console.log('Error', error);
@@ -113,8 +123,17 @@ function calculate(event) {
      document.querySelector('#numTwo').value = '';
 
 
-}
-calculate();
+};
+//calculate();
+
+function operatorButton(event) {
+    console.log(event.target);
+    event.preventDefault();
+      OPERATOR = event.target.value;
+    
+    };
+
+
 
 // * []Inside `<form data-testid="calculator">`:
 //   * []Create a user interface where the user can input two values and select a mathematical operator.
