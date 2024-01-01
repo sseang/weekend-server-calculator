@@ -8,11 +8,11 @@ let OPERATOR;
 // #### Client-Side:
 
 // * [x]Inside the `<section data-testid="recentResult">` element, display the most recent calculation **result**.
-//   * []Update this when a new calculation is made.
+//   * [x]Update this when a new calculation is made.
 
 // * []Inside the `<section data-testid="resultHistory">` element, display a list of all previous calculations on the page when it loads (using a `GET '/calculations'` request). 
 //   * []Update this list when a new calculation is made. 
-//displayed but failig test!!
+//displayed but failing test!!
 
 //fetch data function or GET request
 function fetchMath() {
@@ -111,21 +111,20 @@ function calculate(event) {
         console.log(mathList);
         mathList.innerHTML = '';
 
-        //fetch new DATA
+        //fetch new DATA to render
         fetchMath();
     })
     .catch((error) => {
         console.log('Error', error);
         alert('UH OH!! Check consoles for details.'); 
      });
-     //clear fields
-     document.querySelector('#numOne').value = '';
-     document.querySelector('#numTwo').value = '';
+
 
 
 };
 //calculate();
 
+//function for operators
 function operatorButton(event) {
     console.log(event.target);
     event.preventDefault();
@@ -133,12 +132,14 @@ function operatorButton(event) {
     
     };
 
+//function for clear inputs
+function clearInput(event) {
+    console.log(event.target);
+    event.preventDefault();
+    //clear fields
+    document.querySelector('#numOne').value = '';
+    document.querySelector('#numTwo').value = '';
+    
+    };
 
 
-// * []Inside `<form data-testid="calculator">`:
-//   * []Create a user interface where the user can input two values and select a mathematical operator.
-//     * Each mathematical operator is represented by a button:
-//       * `<button>+</button>`
-//   * []When the `=` button is clicked, capture the input values and operator, then send this data to `POST '/calculations'`. You'll need to format it like so:
-//     * `{ numOne: 25, numTwo: 10, operator: '+' }`
-//   * []There should be a `'C'` button that will clear the inputs.

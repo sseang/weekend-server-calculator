@@ -8,19 +8,26 @@
   </head>
   <body>
     <h1>Server-Side Calculator</h1>
-
+    
     <form id="calculator" data-testid="calculator">
+    <!--* [x]Inside `<form data-testid="calculator">`:
+      //   * [x]Create a user interface where the user can input two values and select a mathematical operator.-->
+        <!-- [x]* Each mathematical operator is represented by a button:
+          * `<button>+</button>` -->  
 
-      <input id="numOne" type="number" placeholder="First Number">
-
-      <button id="addButton" onclick="operatorButton(event)" value="+">+</button>
-      <button id="subButton" onclick="operatorButton(event)" value="-">-</button>
-      <button id="multButton" onclick="operatorButton(event)" value="*">*</button>
-      <button id="divButton" onclick="operatorButton(event)" value="/">/</button>
-      
+       <input id="numOne" type="number" placeholder="First Number">
+        <button id="addButton" onclick="operatorButton(event)" value="+">+</button>
+        <button id="subButton" onclick="operatorButton(event)" value="-">-</button>
+        <button id="multButton" onclick="operatorButton(event)" value="*">*</button>
+        <button id="divButton" onclick="operatorButton(event)" value="/">/</button>    
       <input id="numTwo" type="number" placeholder="Second Number">
-      <button id="letsCalculate" action="/calculations" method="POST" onclick="calculate(event)" data-equal>=</button>
-      <button>C</button>
+
+     <!-- * [x]When the `=` button is clicked, capture the input values and operator, then send this data to `POST '/calculations'`. You'll need to format it like so:
+        * `{ numOne: 25, numTwo: 10, operator: '+' }` -->
+        <button id="letsCalculate" action="/calculations" method="POST" onclick="calculate(event)" data-equal>=</button>
+      
+     <!-- * []There should be a `'C'` button that will clear the inputs. -->
+        <button onclick="clearInput(event)">C</button>
     </form>
 
     <section id="recentHistory" data-testid="recentResult">
