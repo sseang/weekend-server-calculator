@@ -33,8 +33,8 @@ function fetchMath() {
         let recentDiv = document.querySelector('#recentHistory')
         let historyDiv = document.querySelector('#oldHistory');
         //confirm data
-        console.log(historyDiv);
         console.log(recentDiv);
+        console.log(historyDiv);
         
         //loop and rendor to DOM
         for (let items of mathFromServer) {
@@ -49,7 +49,7 @@ function fetchMath() {
             //not able to do 2 GET calls? (This could be because the text is broken up by multiple elements, 
             
             historyDiv.innerHTML += `
-                <li>${items.numOne}${items.operator}${items.numTwo} = ${items.result}</li>
+                <li>${items.numOne} ${items.operator} ${items.numTwo} = ${items.result}</li>
             `; 
            // <li>${String(items.numOne + items.operator + items.numTwo + '=' + items.result)}</li>
 
