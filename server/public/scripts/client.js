@@ -46,12 +46,13 @@ function fetchMath() {
             <h2>${items.result}</h2>
             `;       
 
-            //not able to do 2 GET calls?
+            //not able to do 2 GET calls? (This could be because the text is broken up by multiple elements, 
+            
             historyDiv.innerHTML += `
-            <li>
-                <i>${items.numOne}${items.operator}${items.numTwo} = ${items.result}</i>
-            </li>
+                <li>${items.numOne}${items.operator}${items.numTwo} = ${items.result}</li>
             `; 
+           // <li>${String(items.numOne + items.operator + items.numTwo + '=' + items.result)}</li>
+
         }
     })
     .catch((error) => {
@@ -88,8 +89,8 @@ function calculate(event) {
     
     //variable for new data
     const goCalculate = {
-        numOne: num1Element,
-        numTwo: num2Element,
+        numOne: Number(num1Element),
+        numTwo: Number(num2Element),
         operator: OPERATOR,
         
     };
